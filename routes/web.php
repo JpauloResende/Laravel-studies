@@ -1,5 +1,21 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/','home');
+
+
+Route::get('/rota', function() {
+    return 'home';
+});
+
+
+Route::match(['get', 'post'], '/injection', function(Request $request) {
+    return '<h1>aceita tanto get quanto post</h1>';
+});
+
+Route::any('/any', function() {
+    return 'aceita qualquer coisa (http verb)';
+});
