@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MainController;
 use Illuminate\Http\Request;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Route;
@@ -19,3 +20,15 @@ Route::match(['get', 'post'], '/injection', function(Request $request) {
 Route::any('/any', function() {
     return 'aceita qualquer coisa (http verb)';
 });
+Route::get('/get', [MainController::class, 'index']);
+Route::get('/about', [MainController::class, 'about']);
+
+Route::redirect('/saltar', '/get1');
+Route::permanentRedirect('/saltar2', '/get');
+
+
+// --------------------------------
+// ROUTE PARAMETERS
+// --------------------------------
+
+Route
