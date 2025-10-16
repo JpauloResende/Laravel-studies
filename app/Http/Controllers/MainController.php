@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use Illuminate\View\View as View;
 
 class MainController extends Controller
 {
-    public function index () {
-        echo 'index';
+    public function initMethod (): string {
+       
+        return 'hello world';
+        $name = 'John Doe';
     }
-    public function about () {
-        echo 'about';
+
+    public function viewPage(): View {
+        
+        return view('home');
     }
-    
 }
