@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\singleActionController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\OnlyAdmin;
 use Illuminate\Http\Request;
@@ -99,9 +100,10 @@ use Illuminate\Support\Facades\Route;
 //     echo '<h2 style="color: red; justify-content: center; margin: 0; display: flex;">rota inexistente. <a href="/" style="text-decoration: none; color: blue; padding-left: 20px; padding-right: 20px;">  clique aqui </a> para ir para a home</h2>';
 // });
 
-Route::get('/init', [MainController::class, 'initMethod'])->name('init');
-Route::get('/view', [MainController::class, 'viewPage'])->name('view');
+// Route::get('/init', [MainController::class, 'initMethod'])->name('init');
+// Route::get('/view', [MainController::class, 'viewPage'])->name('view');
 
 // single action controller
 
 
+// Route::get('/single', singleActionController::class);
