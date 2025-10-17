@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\StartMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -11,7 +12,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        //adicionar a todas as rotas
+        $middleware->prepend([StartMiddleware::class]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

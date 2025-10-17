@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\MasterController;
 use App\Http\Controllers\singleActionController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\EndMiddleware;
 use App\Http\Middleware\OnlyAdmin;
+use App\Http\Middleware\StartMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Route;
@@ -107,3 +111,16 @@ use Illuminate\Support\Facades\Route;
 
 
 // Route::get('/single', singleActionController::class);
+
+
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+
+Route::get('/teste/{value}', [MasterController::class, 'teste'])->name('teste');
+
+// Route::get('/', [MasterController::class, 'index'])->name('home')->middleware([StartMiddleware::class]);
+// Route::get('/about', [MasterController::class, 'about'])->name('about')->middleware([EndMiddleware::class]);
+// Route::get('/contact', [MasterController::class, 'contact'])->name('contact')->middleware([StartMiddleware::class, EndMiddleware::class]);
+
+Route::get('/', [MasterController::class, 'index'])->name('home');
+Route::get('/about', [MasterController::class, 'about'])->name('about');
+Route::get('/contact', [MasterController::class, 'contact'])->name('contact');
